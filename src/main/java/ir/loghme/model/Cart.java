@@ -1,6 +1,6 @@
 package main.java.ir.loghme.model;
-
-import java.util.ArrayList;
+import main.java.ir.loghme.exeption.FoodNotFoundExeption;
+import main.java.ir.loghme.exeption.RestaurantNotFoundExeption;
 import java.util.HashMap;
 
 public class Cart {
@@ -21,18 +21,15 @@ public class Cart {
         this.restaurant = null;
     }
 
-    public void addFood(String foodName) throws Exception {
+    public void addFood(String foodName) throws FoodNotFoundExeption, RestaurantNotFoundExeption {
         if (this.isEmpty())
-            throw new Exception("No restaurant selected for cart");
+            throw new RestaurantNotFoundExeption("No restaurant selected for cart");
 
-        ArrayList<Food> menu = restaurant.getMenu();
-        for (Food f: menu) {
-            if (f.getName().equals(foodName)){
-                factor.put(foodName, factor.getOrDefault(foodName, 0) + 1);
-                return;
-            }
-        }
-        throw new Exception("No food with this name found in this restaurant");
+        if (!restaurant.hasFood(foodName))
+            throw new FoodNotFoundExeption("No food with this name found in this restaurant");
+
+        factor.put(foodName, factor.getOrDefault(foodName, 0) + 1);
+
     }
 
     public HashMap<String, Integer> getFactor() {
