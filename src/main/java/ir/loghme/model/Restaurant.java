@@ -1,5 +1,7 @@
 package main.java.ir.loghme.model;
 
+import main.java.ir.loghme.exeption.FoodNotFoundExeption;
+
 import java.util.ArrayList;
 
 public class Restaurant {
@@ -34,6 +36,22 @@ public class Restaurant {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public Food getFood(String foodName) throws FoodNotFoundExeption {
+        for (Food f:menu) {
+            if(f.getName().toLowerCase().equals(foodName.toLowerCase()))
+                return f;
+        }
+        throw new FoodNotFoundExeption("No food with this name found in menu");
+    }
+
+    public boolean hasFood(String foodName) {
+        for (Food f:menu) {
+            if(f.getName().toLowerCase().equals(foodName.toLowerCase()))
+                return true;
+        }
+        return false;
     }
 
     public void setMenu(ArrayList<Food> menu) {
