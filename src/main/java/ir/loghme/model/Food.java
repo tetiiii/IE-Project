@@ -17,6 +17,7 @@ public class Food {
 
     public Food(Food f) {
         this.name = f.name;
+        this.restaurantName= f.restaurantName;
         this.description = f.description;
         this.popularity = f.popularity;
         this.price = f.price;
