@@ -1,4 +1,4 @@
-package main.java.ir.loghme.model.Command;
+package main.java.ir.loghme.model.command;
 
 import main.java.ir.loghme.model.Restaurant;
 

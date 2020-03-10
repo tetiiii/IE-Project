@@ -1,11 +1,8 @@
-package main.java.ir.loghme.model.Command;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
+package main.java.ir.loghme.model.command;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.ir.loghme.model.Food;
 import main.java.ir.loghme.model.Restaurant;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class AddFood implements Command {
