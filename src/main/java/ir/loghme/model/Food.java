@@ -62,4 +62,11 @@ public class Food {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public boolean isValid() {
+        return name != null && name != "" &&
+                restaurantName != null && restaurantName != "" &&
+                popularity >= 0 &&
+                price > 0;
+    }
 }
