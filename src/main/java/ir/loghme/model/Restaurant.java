@@ -38,6 +38,13 @@ public class Restaurant {
         this.location = location;
     }
 
+    public void setMenu(ArrayList<Food> menu) {
+        this.menu = new ArrayList<Food>();
+        for(int i = 0; i < menu.size(); i++) {
+            this.menu.add(new Food(menu.get(i)));
+        }
+    }
+
     public Food getFood(String foodName) throws FoodNotFoundExeption {
         for (Food f:menu) {
             if(f.getName().toLowerCase().equals(foodName.toLowerCase()))
@@ -46,18 +53,18 @@ public class Restaurant {
         throw new FoodNotFoundExeption("No food with this name found in menu");
     }
 
+    public void addFood(Food food) throws IllegalArgumentException {
+        if(hasFood(food.getName()))
+            throw new IllegalArgumentException("the food already exists in the menu");
+
+        this.menu.add(food);
+    }
+
     public boolean hasFood(String foodName) {
         for (Food f:menu) {
             if(f.getName().toLowerCase().equals(foodName.toLowerCase()))
                 return true;
         }
         return false;
-    }
-
-    public void setMenu(ArrayList<Food> menu) {
-        this.menu = new ArrayList<Food>();
-        for(int i = 0; i < menu.size(); i++) {
-            this.menu.add(new Food(menu.get(i)));
-        }
     }
 }
