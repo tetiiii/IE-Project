@@ -10,6 +10,20 @@ public class Restaurant {
     private Location location;
     private ArrayList<Food> menu;
 
+    public Restaurant() {
+        this.name = "";
+        this.description = "";
+        this.location = new Location();
+        this.menu = new ArrayList<>();
+    }
+
+    public Restaurant(String name, String description, Location location, ArrayList<Food> menu) {
+        this.name = name;
+        this.description = description;
+        this.location = location;
+        this.menu = menu;
+    }
+
     public String getName() {
         return name;
     }
