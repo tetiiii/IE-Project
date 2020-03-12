@@ -32,9 +32,11 @@ public class AddFood implements Command {
             // check existence of given restaurantName in the list - case insensitive
             if (r.getName().toLowerCase().equals(restaurantName.toLowerCase())) {
                 // check existence of foodName in the menu of the restaurant
-                if (!r.hasFood(food.getName())){
-                    r.addFood(food) ;
+                if (!r.hasFood(food.getName())) {
+                    r.addFood(food);
                     return;
+                } else {
+                    throw new IllegalArgumentException("the food name already exists");
                 }
             }
         }
