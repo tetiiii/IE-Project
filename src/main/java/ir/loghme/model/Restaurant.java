@@ -81,4 +81,10 @@ public class Restaurant {
         }
         return false;
     }
+
+    public boolean isValid() {
+        return this.name != null && !this.name.equals("") &&
+                this.location != null &&
+                this.menu != null;
+    }
 }
