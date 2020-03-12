@@ -65,7 +65,7 @@ public class Food {
 
     public boolean isValid() {
         return name != null && name != "" &&
-                restaurantName != null && restaurantName != "" &&
+                restaurantName != null && !restaurantName.equals("") &&
                 popularity >= 0 &&
                 price > 0;
     }
