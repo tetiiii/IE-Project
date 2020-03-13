@@ -56,13 +56,12 @@ public class AddToCart implements Command {
 
         if(restaurant == null)
             throw new IllegalArgumentException("Restaurant name is not valid");
-
-        boolean success = false;
+        
         for (User u : users) {
             if (u.getName().equals("FJ")) {
                 try {
                     u.addToCart(foodName, restaurant);
-                    success =true;
+                    return;
                 } catch (RestaurantNotFoundExeption e) {
                     throw new IllegalStateException("serious problem in list of restaurants", e);
                 } catch (FoodNotFoundExeption e) {
@@ -70,9 +69,6 @@ public class AddToCart implements Command {
                 }
             }
         }
-
-        if (success != true)
-            throw new IllegalArgumentException("user not found");
-
+        throw new IllegalArgumentException("user not found");
     }
 }
