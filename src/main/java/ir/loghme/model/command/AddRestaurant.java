@@ -15,7 +15,7 @@ public class AddRestaurant implements Command {
 
 
     @Override
-    public void execute(String input) throws Exception {
+    public void execute(String input) throws IllegalArgumentException {
         ObjectMapper mapper = new ObjectMapper();
 
         // JSON String to Java object
