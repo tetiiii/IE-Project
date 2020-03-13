@@ -7,10 +7,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
+    private String name;
     private Cart cart;
     private Location location;
 
+
     public User() {
+        this.name = "FJ";
         this.cart = new Cart();
         this.location = new Location();
     }
@@ -44,5 +47,13 @@ public class User {
             result.put(k, v);
         });
         return result;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
