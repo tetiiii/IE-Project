@@ -13,18 +13,23 @@ public class AddFood implements Command {
     }
 
     @Override
-    public void execute(String input) throws IllegalArgumentException {
-        ObjectMapper mapper = new ObjectMapper();
+    public <I, O> O execute(I input) throws IllegalArgumentException, NullPointerException, ClassCastException {
+//        ObjectMapper mapper = new ObjectMapper();
+//
+//        // JSON String to Java object
+//        Food food;
+//        try {
+//            food = mapper.readValue(input, Food.class);
+//        } catch (Exception e) {
+//            throw new IllegalArgumentException(e.getMessage());
+//        }
 
-        // JSON String to Java object
-        Food food;
-        try {
-            food = mapper.readValue(input, Food.class);
-        } catch (Exception e) {
-            throw new IllegalArgumentException(e.getMessage());
-        }
+        if (!(input instanceof Food))
+            throw new ClassCastException("cannot cast input to Food type");
 
-        if(!food.isValid())
+        Food food = ((Food) input);
+
+        if (!food.isValid())
             throw new IllegalArgumentException("the food information is not valid,plz change it bi namoos");
 
         String restaurantName = food.getRestaurantName();
@@ -34,7 +39,7 @@ public class AddFood implements Command {
                 // check existence of foodName in the menu of the restaurant
                 if (!r.hasFood(food.getName())) {
                     r.addFood(food);
-                    return;
+                    return null;
                 } else {
                     throw new IllegalArgumentException("the food name already exists");
                 }

@@ -23,16 +23,20 @@ public class AddToCart implements Command {
     }
 
     @Override
-    public void execute(String input) throws IllegalArgumentException, IllegalStateException {
-        ObjectMapper mapper = new ObjectMapper();
+    public <I, O> O execute(I input) throws IllegalArgumentException, ClassCastException, IllegalStateException {
+//        ObjectMapper mapper = new ObjectMapper();
+//
+//        // JSON String to Java object
+//        Map order;
+//        try {
+//            order = mapper.readValue(input, HashMap.class);
+//        } catch (Exception e) {
+//            throw new IllegalArgumentException(e.getMessage());
+//        }
+        if (!(input instanceof Map))
+            throw new ClassCastException("cannot convert input to type Map");
 
-        // JSON String to Java object
-        Map order;
-        try {
-            order = mapper.readValue(input, HashMap.class);
-        } catch (Exception e) {
-            throw new IllegalArgumentException(e.getMessage());
-        }
+        Map order = ((Map) input);
 
         if (order.size() != ELEMENTS_NUM)
             throw new IllegalArgumentException("Invalid number of keys in JSON");
@@ -56,12 +60,12 @@ public class AddToCart implements Command {
 
         if(restaurant == null)
             throw new IllegalArgumentException("Restaurant name is not valid");
-        
+
         for (User u : users) {
             if (u.getName().equals("FJ")) {
                 try {
                     u.addToCart(foodName, restaurant);
-                    return;
+                    return null;
                 } catch (RestaurantNotFoundExeption e) {
                     throw new IllegalStateException("serious problem in list of restaurants", e);
                 } catch (FoodNotFoundExeption e) {

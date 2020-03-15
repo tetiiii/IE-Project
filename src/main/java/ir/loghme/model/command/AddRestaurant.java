@@ -15,18 +15,23 @@ public class AddRestaurant implements Command {
 
 
     @Override
-    public void execute(String input) throws IllegalArgumentException {
-        ObjectMapper mapper = new ObjectMapper();
+    public <I, O> O execute(I input) throws IllegalArgumentException, ClassCastException {
+//        ObjectMapper mapper = new ObjectMapper();
+//
+//        // JSON String to Java object
+//        Restaurant restaurant;
+//        try {
+//            restaurant = mapper.readValue(input, Restaurant.class);
+//        } catch (Exception e) {
+//            throw new IllegalArgumentException(e.getMessage());
+//        }
 
-        // JSON String to Java object
-        Restaurant restaurant;
-        try {
-            restaurant = mapper.readValue(input, Restaurant.class);
-        } catch (Exception e) {
-            throw new IllegalArgumentException(e.getMessage());
-        }
+        if (!(input instanceof Restaurant))
+            throw new ClassCastException("cannot cast input to type Restaurant");
 
-        if(!restaurant.isValid())
+        Restaurant restaurant = ((Restaurant) input);
+
+        if (!restaurant.isValid())
             throw new IllegalArgumentException("the restaurant information is not valid,plz change it ");
 
         String restaurantName = restaurant.getName();
@@ -37,5 +42,6 @@ public class AddRestaurant implements Command {
         }
         // Add the restaurant to the list
         restaurants.add(restaurant);
+        return null;
     }
 }
