@@ -15,7 +15,7 @@ public class AddToCart implements Command {
     private ArrayList<Restaurant> restaurants;
     private final int ELEMENTS_NUM = 2;
     private final String FOOD_NAME_KEY = "foodName";
-    private final String RESTAURANT_NAME_KEY = "restaurant_name";
+    private final String RESTAURANT_NAME_KEY = "restaurantName";
 
     public AddToCart(ArrayList<User> users, ArrayList<Restaurant> restaurants){
         this.users = users;
