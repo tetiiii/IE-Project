@@ -53,7 +53,12 @@ public class User {
         return name;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
+
 }
