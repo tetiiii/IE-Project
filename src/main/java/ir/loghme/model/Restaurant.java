@@ -20,8 +20,14 @@ public class Restaurant {
     public Restaurant(String name, String description, Location location, ArrayList<Food> menu) {
         this.name = name;
         this.description = description;
-        this.location = location;
-        this.menu = menu;
+        this.location = new Location(location);
+        this.menu = new ArrayList<>();
+        for (Food f : menu)
+            this.menu.add(new Food(f));
+    }
+
+    public Restaurant(Restaurant that) {
+        this(that.name, that.description, that.location, that.menu);
     }
 
     public String getName() {
