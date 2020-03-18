@@ -1,5 +1,7 @@
 package main.java.ir.loghme.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Food {
     private String name;
     private String restaurantName;
@@ -26,7 +28,7 @@ public class Food {
     public String getName() {
         return name;
     }
-
+//FIXME: dont print restaurantName in JSON food
     public String getRestaurantName() {
         return restaurantName;
     }
@@ -63,8 +65,9 @@ public class Food {
         this.price = price;
     }
 
+    @JsonIgnore
     public boolean isValid() {
-        return name != null && name != "" &&
+        return name != null && !name.equals("") &&
                 restaurantName != null && !restaurantName.equals("") &&
                 popularity >= 0 &&
                 price > 0;
