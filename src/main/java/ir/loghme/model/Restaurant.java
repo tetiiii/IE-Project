@@ -1,5 +1,6 @@
 package main.java.ir.loghme.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import main.java.ir.loghme.exeption.FoodNotFoundExeption;
 
 import java.util.ArrayList;
@@ -60,8 +61,8 @@ public class Restaurant {
 
     public void setMenu(ArrayList<Food> menu) {
         this.menu = new ArrayList<Food>();
-        for(int i = 0; i < menu.size(); i++) {
-            this.menu.add(new Food(menu.get(i)));
+        for (Food food : menu) {
+            this.menu.add(new Food(food));
         }
     }
 
@@ -88,6 +89,7 @@ public class Restaurant {
         return false;
     }
 
+    @JsonIgnore
     public boolean isValid() {
         return this.name != null && !this.name.equals("") &&
                 this.location != null &&

@@ -1,0 +1,8 @@
+getRestaurants
+addRestaurant {"name": "H", "description": "l", "location": {"x": 1, "y":3},"menu": [{"name": "G", "description": "i", "popularity": 0.9, "price":2333}]}
+getRestaurants
+addFood {"name": "gfff", "description": "jjjjffffgfd", "popularity": 0.6,"restaurantName":"H", "price": 111}
+addToCart {"foodName": "gfff", "restaurantName":"H"}
+getRestaurant { "name" : "H" }
+finalizeOrder
+getRecommendedRestaurants
