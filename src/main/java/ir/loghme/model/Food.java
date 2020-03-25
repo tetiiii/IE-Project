@@ -9,6 +9,14 @@ public class Food {
     private double popularity;
     private double price;
 
+    public Food(String name, String restaurantName, String description, double popularity, double price ) {
+        this.name = name;
+        this.restaurantName = restaurantName;
+        this.description = description;
+        this.popularity = popularity;
+        this.price = price;
+    }
+
     public Food() {
         this.name = "";
         this.restaurantName = "";
