@@ -13,16 +13,7 @@ public class AddFood implements Command {
     }
 
     @Override
-    public <I, O> O execute(I input) throws IllegalArgumentException, NullPointerException, ClassCastException {
-//        ObjectMapper mapper = new ObjectMapper();
-//
-//        // JSON String to Java object
-//        Food food;
-//        try {
-//            food = mapper.readValue(input, Food.class);
-//        } catch (Exception e) {
-//            throw new IllegalArgumentException(e.getMessage());
-//        }
+    public <I, O> O execute(I input) throws IllegalArgumentException, ClassCastException {
 
         if (!(input instanceof Food))
             throw new ClassCastException("cannot cast input to Food type");
@@ -30,7 +21,7 @@ public class AddFood implements Command {
         Food food = ((Food) input);
 
         if (!food.isValid())
-            throw new IllegalArgumentException("the food information is not valid,plz change it bi namoos");
+            throw new IllegalArgumentException("the food information is not valid,plz change it");
 
         String restaurantName = food.getRestaurantName();
         for (Restaurant r: restaurants) {

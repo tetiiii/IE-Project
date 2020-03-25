@@ -21,15 +21,6 @@ public class GetFood implements Command {
 
     @Override
     public <I, O> O execute(I input) throws IllegalArgumentException, ClassCastException, IllegalStateException {
-//        ObjectMapper mapper = new ObjectMapper();
-//
-//        // JSON String to Java object
-//        Map order;
-//        try {
-//            order = mapper.readValue(input, HashMap.class);
-//        } catch (Exception e) {
-//            throw new IllegalArgumentException(e.getMessage());
-//        }
         if (!(input instanceof Map))
             throw new ClassCastException("cannot convert input to type Map");
 

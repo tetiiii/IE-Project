@@ -16,16 +16,6 @@ public class AddRestaurant implements Command {
 
     @Override
     public <I, O> O execute(I input) throws IllegalArgumentException, ClassCastException {
-//        ObjectMapper mapper = new ObjectMapper();
-//
-//        // JSON String to Java object
-//        Restaurant restaurant;
-//        try {
-//            restaurant = mapper.readValue(input, Restaurant.class);
-//        } catch (Exception e) {
-//            throw new IllegalArgumentException(e.getMessage());
-//        }
-
         if (!(input instanceof Restaurant))
             throw new ClassCastException("cannot cast input to type Restaurant");
 
