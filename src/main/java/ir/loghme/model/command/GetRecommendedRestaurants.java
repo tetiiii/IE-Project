@@ -57,6 +57,27 @@ public class GetRecommendedRestaurants implements Command {
                 topThree.add(new Pair<>(new Restaurant(r),popularity));
             }
         }
-        return (O) topThree;
+
+        sort(topThree);
+        ArrayList<String> result = new ArrayList<>();
+        for(int i = 0; i < topThree.size(); i++)
+            result.add(topThree.get(i).getKey().getName());
+
+
+        return (O) result;
+    }
+
+    private void sort(ArrayList<Pair<Restaurant, Double>> topThree) {
+        // bubble sort for topThree
+        for(int i = 0; i < topThree.size(); i++) {
+            int maxIdx = i;
+            for(int j = i; j < topThree.size(); j++) {
+                if( topThree.get(maxIdx).getValue() < topThree.get(j).getValue())
+                    maxIdx = j;
+            }
+            Pair<Restaurant, Double> temp = topThree.get(i);
+            topThree.set(i, topThree.get(maxIdx));
+            topThree.set(maxIdx, temp);
+        }
     }
 }
