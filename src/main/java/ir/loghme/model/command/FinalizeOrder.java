@@ -12,7 +12,7 @@ public class FinalizeOrder implements Command {
     }
 
     @Override
-    public <I, O> O execute(I input) throws ClassCastException, IllegalStateException {
+    public <I, O> O execute(I input) throws IllegalArgumentException {
         if (input != null)
             throw new IllegalArgumentException("order finalization takes no arguments");
         for (User u : users) {

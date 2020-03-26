@@ -29,9 +29,11 @@ public class User {
             throw e;
         }
     }
-
-    public HashMap<String, Integer> finalizeOrder() {
+//FIXME: change exception to a proper one
+    public HashMap<String, Integer> finalizeOrder() throws IllegalArgumentException {
         HashMap<String,Integer> result = this.getCart();
+        if(result.size() == 0)
+            throw new IllegalArgumentException("cart is empty");
         this.cart.clear();
         return result;
     }
