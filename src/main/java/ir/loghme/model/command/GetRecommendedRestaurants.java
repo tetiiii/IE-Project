@@ -37,7 +37,8 @@ public class GetRecommendedRestaurants implements Command {
 
             for (Food f : menu)
                 sum += f.getPopularity();
-            avg = sum / menu.size();
+            if(menu.size() != 0)
+              avg = sum / menu.size();
 
             distance = userLocation.distanceFrom(r.getLocation());
             popularity = distance * avg;
