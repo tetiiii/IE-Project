@@ -3,22 +3,32 @@ package main.java.ir.loghme.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import main.java.ir.loghme.exeption.FoodNotFoundExeption;
 
+import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Restaurant {
+    private UUID id;
+//TODO: assume url as an immutable object
+    private URL logo;
     private String name;
     private String description;
     private Location location;
     private ArrayList<Food> menu;
 
     public Restaurant() {
+        this.id = null;
+        this.logo = null;
         this.name = "";
         this.description = "";
         this.location = new Location();
         this.menu = new ArrayList<>();
     }
 
-    public Restaurant(String name, String description, Location location, ArrayList<Food> menu) {
+    public Restaurant(UUID id, URL logo, String name, String description, Location location, ArrayList<Food> menu) {
+        this.id = id;
+        this.logo = logo;
         this.name = name;
         this.description = description;
         this.location = new Location(location);
@@ -28,7 +38,15 @@ public class Restaurant {
     }
 
     public Restaurant(Restaurant that) {
-        this(that.name, that.description, that.location, that.menu);
+        this(that.id, that.logo, that.name, that.description, that.location, that.menu);
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public URL getLogo() {
+        return logo;
     }
 
     public String getName() {
@@ -45,6 +63,14 @@ public class Restaurant {
 
     public ArrayList<Food> getMenu() {
         return menu;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public void setLogo(URL logo) {
+        this.logo = logo;
     }
 
     public void setName(String name) {
