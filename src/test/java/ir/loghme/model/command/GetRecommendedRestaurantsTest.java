@@ -27,33 +27,33 @@ public class GetRecommendedRestaurantsTest {
         users.add(new User());
 
         // add four restaurants
-        Restaurant r1 = new Restaurant("1",
+        Restaurant r1 = new Restaurant(null,null,"1",
                 "1",
                 new Location(3,4),
                 new ArrayList<Food>());
 
-        Restaurant r2 = new Restaurant("2",
+        Restaurant r2 = new Restaurant(null,null,"2",
                 "2",
                 new Location(1,2),
                 new ArrayList<Food>());
 
-        Restaurant r3 = new Restaurant("3",
+        Restaurant r3 = new Restaurant(null,null,"3",
                 "3",
                 new Location(1,2),
                 new ArrayList<Food>());
 
-        Restaurant r4 = new Restaurant("4",
+        Restaurant r4 = new Restaurant(null,null,"4",
                 "4",
                 new Location(6,9),
                 new ArrayList<Food>());
 
         // add foods to restaurant menus
-        r1.addFood(new Food("Fateme","1","khoshmaze", 100,10000));
-        r1.addFood(new Food("Fateme2","1","khoshmaze2", 1002,100002));
-        r2.addFood(new Food("Fateme","2","khoshmaze", 100,10000));
-        r2.addFood(new Food("Fateme2","2","khoshmaze2", 1002,100002));
-        r3.addFood(new Food("Fateme","3","khoshmaze", 100,10000));
-        r3.addFood(new Food("Fateme2","3","khoshmaze2", 1,100));
+        r1.addFood(new Food(null,"Fateme","khoshmaze", 100,10000));
+        r1.addFood(new Food(null,"Fateme2","khoshmaze2", 1002,100002));
+        r2.addFood(new Food(null,"Fateme","khoshmaze", 100,10000));
+        r2.addFood(new Food(null,"Fateme2","khoshmaze2", 1002,100002));
+        r3.addFood(new Food(null,"Fateme","khoshmaze", 100,10000));
+        r3.addFood(new Food(null,"Fateme2","khoshmaze2", 1,100));
 
         restaurants = new ArrayList<Restaurant>();
 

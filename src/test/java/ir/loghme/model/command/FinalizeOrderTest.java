@@ -24,14 +24,14 @@ public class FinalizeOrderTest {
         User user = new User();
         users.add(user);
 
-        Restaurant r1 = new Restaurant("1",
+        Restaurant r1 = new Restaurant(null,null, "1",
                 "1",
                 new Location(3,4),
                 new ArrayList<Food>());
 
         // add foods to restaurant menu
-        r1.addFood(new Food("Fateme","1","khoshmaze", 100,10000));
-        r1.addFood(new Food("Fateme2","1","khoshmaze2", 1002,100002));
+        r1.addFood(new Food(null,"Fateme","khoshmaze", 100,10000));
+        r1.addFood(new Food(null, "Fateme2","khoshmaze2", 1002,100002));
 
         try {
             user.addToCart("Fateme", r1);
