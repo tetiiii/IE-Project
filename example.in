@@ -1,7 +1,7 @@
 getRestaurants
-addRestaurant {"name": "H", "description": "l", "location": {"x": 1, "y":3},"menu": [{"name": "G", "description": "i", "popularity": 0.9, "price":2333}]}
+addRestaurant {"id": "47bc2786-7290-11ea-bc55-0242ac130003","logo": "https://www.google.com/search?q=vcv&client=ubuntu&hs=akd&channel=fs&tbm=isch&sxsrf=ALeKk02CwYVJfvq7XCYXrur0FaPKToy4Ew:1585577252272&source=lnms&sa=X&ved=0ahUKEwjZuorHr8LoAhWDoXEKHUwnCm4Q_AUICygC&biw=1920&bih=942&dpr=1#imgrc=hNtcCf2q9izSVM", "name": "H", "description": "l", "location": {"x": 1, "y":3},"menu": [{"name": "G", "description": "i", "popularity": 0.9, "price":2333}]}
 getRestaurants
-addFood {"name": "gfff", "description": "jjjjffffgfd", "popularity": 0.6,"restaurantName":"H", "price": 111}
+addFood {"image": "https://www.google.com/search?q=vcv&client=ubuntu&hs=akd&channel=fs&tbm=isch&sxsrf=ALeKk02CwYVJfvq7XCYXrur0FaPKToy4Ew:1585577252272&source=lnms&sa=X&ved=0ahUKEwjZuorHr8LoAhWDoXEKHUwnCm4Q_AUICygC&biw=1920&bih=942&dpr=1#imgrc=hNtcCf2q9izSVM", "name": "gfff", "description": "jjjjffffgfd", "popularity": 0.6,"restaurantName":"H", "price": 111}
 addToCart {"foodName": "gfff", "restaurantName":"H"}
 getRestaurant { "name" : "H" }
 finalizeOrder
