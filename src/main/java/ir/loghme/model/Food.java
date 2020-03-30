@@ -2,16 +2,17 @@ package main.java.ir.loghme.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.net.URL;
 public class Food {
     private String name;
-    private String restaurantName;
+    private URL image;
     private String description;
     private double popularity;
     private double price;
 
-    public Food(String name, String restaurantName, String description, double popularity, double price ) {
+    public Food(URL image, String name, String description, double popularity, double price ) {
+        this.image = image;
         this.name = name;
-        this.restaurantName = restaurantName;
         this.description = description;
         this.popularity = popularity;
         this.price = price;
@@ -19,7 +20,7 @@ public class Food {
 
     public Food() {
         this.name = "";
-        this.restaurantName = "";
+        this.image = null;
         this.description = "";
         this.popularity = 0;
         this.price = 0;
@@ -27,7 +28,7 @@ public class Food {
 
     public Food(Food f) {
         this.name = f.name;
-        this.restaurantName= f.restaurantName;
+        this.image= f.image;
         this.description = f.description;
         this.popularity = f.popularity;
         this.price = f.price;
@@ -36,9 +37,9 @@ public class Food {
     public String getName() {
         return name;
     }
-//FIXME: dont print restaurantName in JSON food
-    public String getRestaurantName() {
-        return restaurantName;
+
+    public URL getImage() {
+        return image;
     }
 
     public String getDescription() {
@@ -57,8 +58,8 @@ public class Food {
         this.name = name;
     }
 
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
+    public void setImage(URL image) {
+        this.image = image;
     }
 
     public void setDescription(String description) {
@@ -76,7 +77,6 @@ public class Food {
     @JsonIgnore
     public boolean isValid() {
         return name != null && !name.equals("") &&
-                restaurantName != null && !restaurantName.equals("") &&
                 popularity >= 0 &&
                 price > 0;
     }
