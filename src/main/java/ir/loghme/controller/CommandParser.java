@@ -5,6 +5,7 @@ import main.java.ir.loghme.model.Food;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
 import main.java.ir.loghme.model.command.*;
+import main.java.ir.loghme.model.util.FoodInput;
 import main.java.ir.loghme.model.util.Pair;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class CommandParser {
         switch (args[0]) {
             // JSON String to Java object
             case "addFood":
-                inputType = Food.class;
+                inputType = FoodInput.class;
                 break;
             case "addRestaurant":
                 inputType = Restaurant.class;
