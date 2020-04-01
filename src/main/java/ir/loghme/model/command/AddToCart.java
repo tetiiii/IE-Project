@@ -1,13 +1,11 @@
 package main.java.ir.loghme.model.command;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import main.java.ir.loghme.exeption.FoodNotFoundExeption;
-import main.java.ir.loghme.exeption.RestaurantNotFoundExeption;
+import main.java.ir.loghme.exeption.FoodNotFoundException;
+import main.java.ir.loghme.exeption.RestaurantNotFoundException;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class AddToCart implements Command {
@@ -57,9 +55,9 @@ public class AddToCart implements Command {
                 try {
                     u.addToCart(foodName, restaurant);
                     return null;
-                } catch (RestaurantNotFoundExeption e) {
+                } catch (RestaurantNotFoundException e) {
                     throw new IllegalStateException("serious problem in list of restaurants", e);
-                } catch (FoodNotFoundExeption e) {
+                } catch (FoodNotFoundException e) {
                     throw new IllegalArgumentException(e.getMessage());
                 }
             }

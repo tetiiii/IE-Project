@@ -1,9 +1,8 @@
 package main.java.ir.loghme.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import main.java.ir.loghme.exeption.FoodNotFoundExeption;
+import main.java.ir.loghme.exeption.FoodNotFoundException;
 
-import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -92,12 +91,12 @@ public class Restaurant {
         }
     }
 
-    public Food getFood(String foodName) throws FoodNotFoundExeption {
+    public Food getFood(String foodName) throws FoodNotFoundException {
         for (Food f:menu) {
             if(f.getName().toLowerCase().equals(foodName.toLowerCase()))
                 return f;
         }
-        throw new FoodNotFoundExeption("No food with this name found in menu");
+        throw new FoodNotFoundException("No food with this name found in menu");
     }
 
     public void addFood(Food food) throws IllegalArgumentException {

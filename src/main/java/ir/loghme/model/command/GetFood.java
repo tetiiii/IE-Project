@@ -1,10 +1,7 @@
 package main.java.ir.loghme.model.command;
 
-import main.java.ir.loghme.exeption.FoodNotFoundExeption;
-import main.java.ir.loghme.exeption.RestaurantNotFoundExeption;
 import main.java.ir.loghme.model.Food;
 import main.java.ir.loghme.model.Restaurant;
-import main.java.ir.loghme.model.User;
 
 import java.util.ArrayList;
 import java.util.Map;

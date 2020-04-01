@@ -1,10 +1,9 @@
 package main.java.ir.loghme.model;
 
-import main.java.ir.loghme.exeption.FoodNotFoundExeption;
-import main.java.ir.loghme.exeption.RestaurantNotFoundExeption;
+import main.java.ir.loghme.exeption.FoodNotFoundException;
+import main.java.ir.loghme.exeption.RestaurantNotFoundException;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class User {
     private String name;
@@ -18,13 +17,13 @@ public class User {
         this.location = new Location();
     }
 
-    public void addToCart(String foodName, Restaurant restaurant) throws FoodNotFoundExeption, RestaurantNotFoundExeption {
+    public void addToCart(String foodName, Restaurant restaurant) throws FoodNotFoundException, RestaurantNotFoundException {
         if (this.cart.isEmpty())
             this.cart.setRestaurant(restaurant);
 
         try {
           this.cart.addFood(foodName);
-        } catch (RestaurantNotFoundExeption e) {
+        } catch (RestaurantNotFoundException e) {
             System.err.println(e.getMessage());
             throw e;
         }
