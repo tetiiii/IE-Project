@@ -1,12 +1,11 @@
 package main.java.ir.loghme.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import main.java.ir.loghme.model.Food;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
 import main.java.ir.loghme.model.command.*;
-import main.java.ir.loghme.model.util.FoodInput;
-import main.java.ir.loghme.model.util.Pair;
+import main.java.ir.loghme.model.util.model.helper.FoodInput;
+import main.java.ir.loghme.model.util.model.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;

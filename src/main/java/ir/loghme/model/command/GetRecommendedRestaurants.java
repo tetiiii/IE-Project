@@ -4,7 +4,7 @@ import main.java.ir.loghme.model.Food;
 import main.java.ir.loghme.model.Location;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
-import main.java.ir.loghme.model.util.Pair;
+import main.java.ir.loghme.model.util.model.Pair;
 
 import java.util.ArrayList;
 

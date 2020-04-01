@@ -1,4 +1,4 @@
-package main.java.ir.loghme.model.util;
+package main.java.ir.loghme.model.util.model.helper;
 
 import main.java.ir.loghme.model.Food;
 

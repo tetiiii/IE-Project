@@ -1,11 +1,10 @@
 package main.java.ir.loghme;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.ir.loghme.controller.CommandParser;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
 import main.java.ir.loghme.model.command.Command;
-import main.java.ir.loghme.model.util.Pair;
+import main.java.ir.loghme.model.util.model.Pair;
 
 import java.util.ArrayList;
 import java.util.Scanner;  // Import the Scanner class

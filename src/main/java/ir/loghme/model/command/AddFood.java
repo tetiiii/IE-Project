@@ -1,7 +1,7 @@
 package main.java.ir.loghme.model.command;
 import main.java.ir.loghme.model.Food;
 import main.java.ir.loghme.model.Restaurant;
-import main.java.ir.loghme.model.util.FoodInput;
+import main.java.ir.loghme.model.util.model.helper.FoodInput;
 
 import java.util.ArrayList;
 
