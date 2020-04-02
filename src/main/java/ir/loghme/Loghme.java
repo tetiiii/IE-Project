@@ -1,18 +1,41 @@
 package main.java.ir.loghme;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.ir.loghme.controller.CommandParser;
+import main.java.ir.loghme.exeption.HttpException;
+import main.java.ir.loghme.exeption.HttpResponseException;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
 import main.java.ir.loghme.model.command.Command;
+import main.java.ir.loghme.model.util.adapter.HttpAdapter;
 import main.java.ir.loghme.model.util.model.Pair;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;  // Import the Scanner class
 
 public class Loghme {
     public static void main(String[] args) {
+        int RETRY_NUM = 5;
         // Initialization
         ArrayList<Restaurant> restaurants = new ArrayList<>();
+        HttpAdapter adapter = new HttpAdapter();
+        for(int i = 0; i <= RETRY_NUM; i++) {
+            if(i == RETRY_NUM) {
+                System.err.println("couldn't retrieve restaurant information from the API");
+                System.exit(1);
+            }
+            try{
+                String restaurantInfoJson = adapter.sendGet(new URL("http://138.197.181.131:8080/restaurants"));
+                ObjectMapper mapper = new ObjectMapper();
+                restaurants = mapper.readValue(restaurantInfoJson, restaurants.getClass());
+                break;
+            } catch (HttpException  | IOException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+
         ArrayList<User> users = new ArrayList<>();
         CommandParser commandParser = new CommandParser(restaurants, users);
         users.add(new User());
