@@ -1,4 +1,4 @@
-package main.java.ir.loghme.model.command;
+package main.java.ir.loghme.controller.command;
 
 @SuppressWarnings("UnusedReturnValue")
 public interface Command {

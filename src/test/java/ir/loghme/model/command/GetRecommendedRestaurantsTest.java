@@ -1,12 +1,10 @@
 package test.java.ir.loghme.model.command;
 
-import main.java.ir.loghme.controller.CommandParser;
 import main.java.ir.loghme.model.Food;
 import main.java.ir.loghme.model.Location;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
-import main.java.ir.loghme.model.command.AddFood;
-import main.java.ir.loghme.model.command.GetRecommendedRestaurants;
+import main.java.ir.loghme.controller.command.GetRecommendedRestaurants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

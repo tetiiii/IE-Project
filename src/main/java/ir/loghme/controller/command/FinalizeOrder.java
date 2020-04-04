@@ -1,8 +1,7 @@
-package main.java.ir.loghme.model.command;
+package main.java.ir.loghme.controller.command;
 
 import main.java.ir.loghme.model.User;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class FinalizeOrder implements Command {
 

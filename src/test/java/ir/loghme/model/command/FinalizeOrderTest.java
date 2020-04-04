@@ -4,7 +4,7 @@ import main.java.ir.loghme.model.Food;
 import main.java.ir.loghme.model.Location;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
-import main.java.ir.loghme.model.command.FinalizeOrder;
+import main.java.ir.loghme.controller.command.FinalizeOrder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,5 @@
-package main.java.ir.loghme.model.command;
+package main.java.ir.loghme.controller.command;
 
-import main.java.ir.loghme.model.Food;
 import main.java.ir.loghme.model.Restaurant;
 
 import java.util.ArrayList;

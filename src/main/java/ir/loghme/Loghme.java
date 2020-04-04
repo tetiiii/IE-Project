@@ -2,15 +2,13 @@ package main.java.ir.loghme;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.ir.loghme.controller.CommandParser;
 import main.java.ir.loghme.exeption.HttpException;
-import main.java.ir.loghme.exeption.HttpResponseException;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
-import main.java.ir.loghme.model.command.Command;
+import main.java.ir.loghme.controller.command.Command;
 import main.java.ir.loghme.model.util.adapter.HttpAdapter;
 import main.java.ir.loghme.model.util.model.Pair;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;  // Import the Scanner class
