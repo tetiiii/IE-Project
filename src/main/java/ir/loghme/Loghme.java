@@ -11,6 +11,7 @@ import main.java.ir.loghme.model.util.model.Pair;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;  // Import the Scanner class
 
 public class Loghme {
@@ -26,8 +27,11 @@ public class Loghme {
             }
             try{
                 String restaurantInfoJson = adapter.sendGet(new URL("http://138.197.181.131:8080/restaurants"));
+                // deserialize Json String to list of restaurant
+                // We used TypeFactory to construct a complex type (list of restaurants)
                 ObjectMapper mapper = new ObjectMapper();
-                restaurants = mapper.readValue(restaurantInfoJson, restaurants.getClass());
+                restaurants =  mapper.readValue(restaurantInfoJson,
+                        mapper.getTypeFactory().constructCollectionType(List.class, Restaurant.class));
                 break;
             } catch (HttpException  | IOException e) {
                 System.err.println(e.getMessage());
