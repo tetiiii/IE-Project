@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Restaurant {
-    private UUID id;
+    private String id;
 //TODO: assume url as an immutable object
     private URL logo;
     private String name;
@@ -25,7 +25,7 @@ public class Restaurant {
         this.menu = new ArrayList<>();
     }
 
-    public Restaurant(UUID id, URL logo, String name, String description, Location location, ArrayList<Food> menu) {
+    public Restaurant(String id, URL logo, String name, String description, Location location, ArrayList<Food> menu) {
         this.id = id;
         this.logo = logo;
         this.name = name;
@@ -40,7 +40,7 @@ public class Restaurant {
         this(that.id, that.logo, that.name, that.description, that.location, that.menu);
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
@@ -64,7 +64,7 @@ public class Restaurant {
         return menu;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
