@@ -25,7 +25,7 @@ public class CommandParser {
         commands.put("getFood", new GetFood(restaurants));
         commands.put("getRecommendedRestaurants", new GetRecommendedRestaurants(restaurants, users));
         commands.put("getRestaurant", new GetRestaurant(restaurants));
-        commands.put("getRestaurants", new GetRestaurants(restaurants));
+        commands.put("getRestaurants", new GetRestaurants(restaurants,users));
     }
 
     public Pair<Command, Object> parse(String s) throws IllegalArgumentException {
