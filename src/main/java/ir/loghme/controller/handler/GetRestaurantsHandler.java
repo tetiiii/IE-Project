@@ -14,8 +14,11 @@ import java.util.ArrayList;
 public class GetRestaurantsHandler extends GetRestaurants implements Handler {
     private String prefix ;
     private String postfix;
+    private ArrayList<User> users;
+    private final double MAX_DISTANCE = 170;
     public GetRestaurantsHandler(ArrayList<Restaurant> restaurants, ArrayList<User> users) throws IOException {
-        super(restaurants, users);
+        super(restaurants);
+        this.users = users;
         FileManipulator fm = new FileManipulator();
         prefix = fm.readFile(fm.openFileFromResources("restaurants_prefix.html"));
         postfix = fm.readFile(fm.openFileFromResources("restaurants_postfix.html"));
@@ -23,7 +26,23 @@ public class GetRestaurantsHandler extends GetRestaurants implements Handler {
 
     @Override
     public void handle(@NotNull Context context) throws Exception {
-        ArrayList<Restaurant> result = this.execute(null);
+        ArrayList<Restaurant> restaurants = this.execute(null);
+        User user = null;
+        for (User u : users) {
+            if (u.getName().equals("FJ")) {
+                user = u;
+                break;
+            }
+        }
+        if (user == null)
+            throw new IllegalArgumentException("user not found for command getrestaurants");
+
+        ArrayList<Restaurant> result = new ArrayList<>();
+        for (Restaurant r: restaurants) {
+            if (r.getLocation().distanceFrom(user.getLocation()) <= MAX_DISTANCE) {
+                result.add(new Restaurant(r));
+            }
+        }
         String tableRows = "";
         for (Restaurant r: result) {
             tableRows += "    <tr>\n" +
