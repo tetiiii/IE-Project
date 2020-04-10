@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- invisible and have config and style, title is visible -->
+<head>
+    <!-- character encoding -->
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+    <!-- css in style -->
+    <style>
+        img {
+            width: 50px;
+            height: 50px;
+        }
+        /* list */
+        li {
+            /* fill a row and shrink when overflow happens */
+            display: flex;
+            flex-direction: row;
+        /* distance from borders */
+            padding: 0 0 5px;
+        }
+        /* a format in this case words */
+        div, form {
+            padding: 0 5px
+        }
+    </style>
+</head>
+<body>
+<!-- unordered list -->
+<ul>
+    <li>id: 1</li>
+    <li>name: restaurant 1 name</li>
+    <li>location: (3, 5)</li>
+    <li>logo: <img src="url of restaurant image" alt="logo"></li>
+    <li>menu:
+        <ul>
+            <li>
+                <img src="url of food image" alt="logo">
+                <div>food1</div>
+                <div>20000 Toman</div>
+                <!-- to send data to backend -->
+                <form action="" method="POST">
+                    <button type="submit">addToCart</button>
+                </form>
+            </li>
+            <li>
+                <!-- alt:default text to display instead of img -->
+                <img src="url of food image" alt="logo">
+                <div>food2</div>
+                <div>40000 Toman</div>
+                <form action="" method="POST">
+                    <button type="submit">addToCart</button>
+                </form>
+            </li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
