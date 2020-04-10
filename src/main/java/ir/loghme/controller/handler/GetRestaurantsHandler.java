@@ -15,7 +15,7 @@ public class GetRestaurantsHandler extends GetRestaurants implements Handler {
     private String prefix ;
     private String postfix;
     private ArrayList<User> users;
-    private final double MAX_DISTANCE = 170;
+    public static final double MAX_DISTANCE = 170;
     public GetRestaurantsHandler(ArrayList<Restaurant> restaurants, ArrayList<User> users) throws IOException {
         super(restaurants);
         this.users = users;
