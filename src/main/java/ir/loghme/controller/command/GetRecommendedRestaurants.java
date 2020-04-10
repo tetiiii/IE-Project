@@ -22,7 +22,7 @@ public class GetRecommendedRestaurants implements Command {
        ArrayList<Pair<Restaurant, Double>> topThree = new ArrayList<>();
         Location userLocation = null;
         for (User u:users)
-            if(u.getName().toLowerCase().equals("FJ".toLowerCase()))
+            if(u.getId().toLowerCase().equals("1".toLowerCase()))
                 userLocation  = u.getLocation();
 
             if(userLocation == null)

@@ -15,7 +15,7 @@ public class FinalizeOrder implements Command {
         if (input != null)
             throw new IllegalArgumentException("order finalization takes no arguments");
         for (User u : users) {
-            if(u.getName().equals("FJ")) {
+            if(u.getId().equals("1")) {
                 return (O) u.finalizeOrder();
             }
         }

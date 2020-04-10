@@ -32,7 +32,7 @@ public class GetRestaurantHandler extends GetRestaurant implements Handler {
 
         User user = null;
         for (User u : users) {
-            if (u.getName().equals("FJ")) {
+            if (u.getId().equals("1")) {
                 user = u;
                 break;
             }

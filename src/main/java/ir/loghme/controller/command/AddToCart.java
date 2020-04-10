@@ -51,7 +51,7 @@ public class AddToCart implements Command {
             throw new IllegalArgumentException("Restaurant name is not valid");
 
         for (User u : users) {
-            if (u.getName().equals("FJ")) {
+            if (u.getId().equals("1")) {
                 try {
                     u.addToCart(foodName, restaurant);
                     return null;

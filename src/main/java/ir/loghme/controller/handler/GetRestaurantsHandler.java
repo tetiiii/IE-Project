@@ -29,7 +29,7 @@ public class GetRestaurantsHandler extends GetRestaurants implements Handler {
         ArrayList<Restaurant> restaurants = this.execute(null);
         User user = null;
         for (User u : users) {
-            if (u.getName().equals("FJ")) {
+            if (u.getId().equals("1")) {
                 user = u;
                 break;
             }

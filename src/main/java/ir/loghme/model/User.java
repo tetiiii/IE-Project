@@ -6,13 +6,23 @@ import main.java.ir.loghme.exeption.RestaurantNotFoundException;
 import java.util.HashMap;
 
 public class User {
-    private String name;
+    private String id;
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
+    private String email;
+    private int credit;
     private Cart cart;
     private Location location;
 
 
     public User() {
-        this.name = "FJ";
+        this.id = "1";
+        this.firstName = "FJ";
+        this.lastName = "JF";
+        this.phoneNumber = "09118115063";
+        this.email = "fateme.k128@gmail.com";
+        this.credit = 1000;
         this.cart = new Cart();
         this.location = new Location();
     }
@@ -50,16 +60,39 @@ public class User {
         return result;
     }
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return id;
     }
 
     public Location getLocation() {
         return location;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getCredit() {
+        return credit;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }
