@@ -4,6 +4,7 @@ import io.javalin.Javalin;
 import io.javalin.http.Handler;
 import main.java.ir.loghme.controller.handler.GetRestaurantHandler;
 import main.java.ir.loghme.controller.handler.GetRestaurantsHandler;
+import main.java.ir.loghme.controller.handler.GetUserHandler;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
 
@@ -32,6 +33,7 @@ public class WebServer {
     public void configurePaths(ArrayList<Restaurant> restaurants, ArrayList<User> users) throws IOException {
         this.get("/restaurants", new GetRestaurantsHandler(restaurants, users));
         this.get("/restaurants/:id", new GetRestaurantHandler(restaurants, users));
+        this.get("/user", new GetUserHandler(users));
     }
 
 }
