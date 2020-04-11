@@ -2,6 +2,7 @@ package main.java.ir.loghme.controller.handler;
 
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
+import main.java.ir.loghme.controller.WebServer;
 import main.java.ir.loghme.controller.command.GetRestaurants;
 import main.java.ir.loghme.model.Restaurant;
 import main.java.ir.loghme.model.User;
@@ -26,7 +27,15 @@ public class GetRestaurantsHandler extends GetRestaurants implements Handler {
 
     @Override
     public void handle(@NotNull Context context) throws Exception {
-        ArrayList<Restaurant> restaurants = this.execute(null);
+        ArrayList<Restaurant> restaurants = null;
+        try {
+            restaurants = this.execute(null);
+        } catch (IllegalArgumentException e) {
+            context.status(WebServer.HTTP_BADـREQUEST);
+            context.result(e.getMessage());
+            return;
+        }
+
         User user = null;
         for (User u : users) {
             if (u.getId().equals("1")) {

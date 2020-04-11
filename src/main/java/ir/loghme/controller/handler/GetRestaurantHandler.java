@@ -40,7 +40,14 @@ public class GetRestaurantHandler extends GetRestaurant implements Handler {
         if (user == null)
             throw new IllegalArgumentException("user not found for command getrestaurants");
 
-        Restaurant restaurant = execute(context.pathParam("id"));
+        Restaurant restaurant = null;
+        try {
+            restaurant = execute(context.pathParam("id"));
+        } catch (ClassCastException e) {
+            context.status(WebServer.HTTP_BADـREQUEST);
+            context.result(e.getMessage());
+            return;
+        }
         if( restaurant == null) {
             context.status(WebServer.HTTP_NOT_FOUND);
             context.result("No Restaurant with specified id found");

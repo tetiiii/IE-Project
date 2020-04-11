@@ -2,6 +2,7 @@ package main.java.ir.loghme.controller.handler;
 
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
+import main.java.ir.loghme.controller.WebServer;
 import main.java.ir.loghme.controller.command.GetUser;
 import main.java.ir.loghme.model.User;
 import main.java.ir.loghme.model.util.FileManipulator;
@@ -22,7 +23,14 @@ public class GetUserHandler extends GetUser implements Handler {
 
     @Override
     public void handle(@NotNull Context context) throws Exception {
-        User user = execute("09118115063");
+        User user = null;
+        try {
+            user = execute("09118115063");
+        } catch (ClassCastException e) {
+            context.status(WebServer.HTTP_BADـREQUEST);
+            context.result(e.getMessage());
+            return;
+        }
         String userInfo = " <ul>\n" +
                 "        <li>id: " + user.getId() + "</li>\n" +
                 "        <li>full name: " + user.getFirstName() + " " + user.getLastName() + "</li>\n" +
