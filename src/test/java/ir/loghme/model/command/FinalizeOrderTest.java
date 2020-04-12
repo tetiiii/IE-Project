@@ -1,9 +1,6 @@
 package test.java.ir.loghme.model.command;
 
-import main.java.ir.loghme.model.Food;
-import main.java.ir.loghme.model.Location;
-import main.java.ir.loghme.model.Restaurant;
-import main.java.ir.loghme.model.User;
+import main.java.ir.loghme.model.*;
 import main.java.ir.loghme.controller.command.FinalizeOrder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,7 +46,7 @@ public class FinalizeOrderTest {
     public void testFinalizeOrderSuccess() {
         HashMap<String,Integer> actualResult;
         HashMap<String,Integer>  expectedResult = new HashMap<>();
-        actualResult = this.finalizeOrder.execute(null);
+        actualResult = ((Cart)this.finalizeOrder.execute(null)).getFactor();
         expectedResult.put("Fateme", 2);
         expectedResult.put("Fateme2", 1);
 

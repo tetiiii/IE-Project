@@ -44,25 +44,20 @@ public class User {
         }
     }
 //FIXME: change exception to a proper one
-    public HashMap<String, Integer> finalizeOrder() throws IllegalArgumentException {
-        HashMap<String,Integer> result = this.getCart();
-        if(result.size() == 0)
+    public Cart finalizeOrder() throws IllegalArgumentException {
+        Cart temp = this.getCart();
+        if(temp == null)
+            return null;
+        if(temp.getFactor().size() == 0)
             throw new IllegalArgumentException("cart is empty");
         this.cart.clear();
-        return result;
+        return temp;
     }
 
-    public HashMap<String, Integer> getCart() {
-        HashMap<String, Integer> temp = this.cart.getFactor();
-        HashMap<String,Integer> result = new HashMap<>();
-
-        // lambda expression
-        // lambda body copies each element of temp into the result
-        // k is of type String and v of type Integer
-        temp.forEach((k, v) -> {
-            result.put(k, v);
-        });
-        return result;
+    public Cart getCart() {
+        if(cart.getRestaurant() != null)
+            return new Cart(cart);
+        return null;
     }
 
     public String getId() {
