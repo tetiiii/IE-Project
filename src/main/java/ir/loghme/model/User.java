@@ -27,9 +27,14 @@ public class User {
         this.location = new Location();
     }
 
-    public void addToCart(String foodName, Restaurant restaurant) throws FoodNotFoundException, RestaurantNotFoundException {
+    public void addToCart(String foodName, Restaurant restaurant) throws FoodNotFoundException, RestaurantNotFoundException, IllegalArgumentException {
         if (this.cart.isEmpty())
             this.cart.setRestaurant(restaurant);
+        else if (!restaurant.getId().equals(this.cart.getRestaurant().getId())){
+            throw new IllegalArgumentException("you have unfinished order from " + this.cart.getRestaurant().getName());
+        }
+
+
 
         try {
           this.cart.addFood(foodName);

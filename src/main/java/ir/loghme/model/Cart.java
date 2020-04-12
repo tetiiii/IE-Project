@@ -16,6 +16,10 @@ public class Cart {
         this.restaurant = restaurant;
     }
 
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
     public void clear() {
         this.factor.clear();
         this.restaurant = null;

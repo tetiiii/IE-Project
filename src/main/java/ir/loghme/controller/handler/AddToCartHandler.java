@@ -34,7 +34,7 @@ public class AddToCartHandler extends AddToCart implements Handler {
             execute(order);
         } catch (IllegalArgumentException | ClassCastException e) {
             context.status(WebServer.HTTP_BADـREQUEST);
-            context.result(e.getMessage());
+            context.html(e.getMessage()).res.setCharacterEncoding("utf-8");
             return;
         }
         context.redirect("/restaurants/" + id);

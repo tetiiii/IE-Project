@@ -24,7 +24,7 @@ public class FinalizeOrderTest {
         User user = new User();
         users.add(user);
 
-        Restaurant r1 = new Restaurant(null,null, "1",
+        Restaurant r1 = new Restaurant("1",null, "1",
                 "1",
                 new Location(3,4),
                 new ArrayList<Food>());
