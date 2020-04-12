@@ -75,8 +75,9 @@ public class GetRestaurantHandler extends GetRestaurant implements Handler {
                     "                <img src=\"" + f.getImage() + "\" alt=\"logo\">\n" +
                     "                <div>" + f.getName() + "</div>\n" +
                     "                <div>" + f.getPrice() + " Toman</div>\n" +
-                    "                <form action=\"\" method=\"POST\">\n" +
-                    "                    <button type=\"submit\">addToCart</button>\n" +
+                    "                <form action=\"" + restaurant.getId() + "/addtocart\" method=\"POST\">\n" +
+                    "                    <button type=\"submit\">" + "addToCart" + "</button>\n" +
+                    "                    <input type=\"hidden\"  name=\"foodName\" value=\"" + f.getName() + "\">" +
                     "                </form>\n" +
                     "            </li>";
         }
