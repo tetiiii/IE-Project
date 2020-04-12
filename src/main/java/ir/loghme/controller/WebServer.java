@@ -38,6 +38,7 @@ public class WebServer {
         this.get("/user", new GetUserHandler(users));
         this.post("/user/credit", new IncreaseCreditHandler(users));
         this.post("/restaurants/:id/addtocart", new AddToCartHandler(users, restaurants) );
+        this.get("/cart", new GetCartHandler(users));
     }
 
 }

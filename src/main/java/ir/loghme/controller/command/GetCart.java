@@ -11,9 +11,9 @@ public class GetCart implements Command {
     }
 
     @Override
-    public <I, O> O execute(I input) throws ClassCastException, IllegalStateException {
+    public <I, O> O execute(I input) throws IllegalArgumentException {
         if (input != null)
-            throw new IllegalArgumentException("order finalization takes no arguments");
+            throw new IllegalArgumentException("get cart takes no arguments");
         for (User u : users) {
             if(u.getId().equals("1")) {
                 return (O) u.getCart();
