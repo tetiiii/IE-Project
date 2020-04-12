@@ -37,7 +37,7 @@ public class GetUserHandler extends GetUser implements Handler {
                 "        <li>phone number: " + user.getPhoneNumber() + "</li>\n" +
                 "        <li>email: " + user.getEmail() + "</li>\n" +
                 "        <li>credit: " + user.getCredit() + " Toman </li>\n" +
-                "        <form action=\"\" method=\"POST\">\n" +
+                "        <form action=\"user/credit\" method=\"POST\">\n" +
                 "            <button type=\"submit\">increase</button>\n" +
                 "            <input type=\"text\" name=\"credit\" value=\"\" />\n" +
                 "        </form>\n" +
