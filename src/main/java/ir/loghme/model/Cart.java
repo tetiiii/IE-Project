@@ -12,6 +12,18 @@ public class Cart {
         this.factor = new HashMap<>();
     }
 
+    public Cart(Cart cart) {
+        this.restaurant = new Restaurant(cart.getRestaurant());
+        this.factor = new HashMap<>();
+
+        // lambda expression
+        // lambda body copies each element
+        // k is of type String and v of type Integer
+        cart.getFactor().forEach((k, v) -> {
+            this.factor.put(k, v);
+        });
+    }
+
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
     }
