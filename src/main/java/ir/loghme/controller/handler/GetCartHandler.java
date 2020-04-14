@@ -34,7 +34,7 @@ public class GetCartHandler extends GetCart implements Handler {
            return;
         }
         if(cart == null) {
-            context.result("your cart is empty");
+            context.result("your cart is empty :((((((");
             return;
         }
 

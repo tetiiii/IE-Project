@@ -1,5 +1,6 @@
 package main.java.ir.loghme.controller.command;
 
+import main.java.ir.loghme.exeption.InsufficientCreditException;
 import main.java.ir.loghme.model.User;
 import java.util.ArrayList;
 
@@ -11,7 +12,7 @@ public class FinalizeOrder implements Command {
     }
 
     @Override
-    public <I, O> O execute(I input) throws IllegalArgumentException {
+    public <I, O> O execute(I input) throws IllegalArgumentException, InsufficientCreditException {
         if (input != null)
             throw new IllegalArgumentException("order finalization takes no arguments");
         for (User u : users) {
@@ -19,7 +20,7 @@ public class FinalizeOrder implements Command {
                 return (O) u.finalizeOrder();
             }
         }
-        throw new IllegalArgumentException ("no user found with this name");
+        throw new IllegalArgumentException ("no user found with this name!!!!!");
     }
 
 }

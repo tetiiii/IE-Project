@@ -1,8 +1,10 @@
 package main.java.ir.loghme.model;
 
 import main.java.ir.loghme.exeption.FoodNotFoundException;
+import main.java.ir.loghme.exeption.InsufficientCreditException;
 import main.java.ir.loghme.exeption.RestaurantNotFoundException;
 
+import javax.naming.InsufficientResourcesException;
 import java.util.HashMap;
 
 public class User {
@@ -44,12 +46,30 @@ public class User {
         }
     }
 //FIXME: change exception to a proper one
-    public Cart finalizeOrder() throws IllegalArgumentException {
+    public Cart finalizeOrder() throws IllegalArgumentException, InsufficientCreditException {
         Cart temp = this.getCart();
         if(temp == null)
             return null;
-        if(temp.getFactor().size() == 0)
+
+        HashMap<String, Integer> tempFactor = temp.getFactor();
+        if(tempFactor.size() == 0)
             throw new IllegalArgumentException("cart is empty");
+
+        Restaurant restaurant =  temp.getRestaurant();
+        var lambdaContext = new Object() {
+            double priceSum = 0;
+        };
+        tempFactor.forEach((k, v) -> {
+            try {
+                lambdaContext.priceSum += (restaurant.getFood(k).getPrice()) * v;
+            } catch (FoodNotFoundException e) {
+                System.err.println(e.getMessage());
+            }
+        });
+        if (lambdaContext.priceSum > credit){
+            throw new InsufficientCreditException("your credit doesnt cover this order :'(((( ");
+        }
+        credit -= lambdaContext.priceSum;
         this.cart.clear();
         return temp;
     }

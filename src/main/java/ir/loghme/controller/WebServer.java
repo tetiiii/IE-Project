@@ -39,6 +39,7 @@ public class WebServer {
         this.post("/user/credit", new IncreaseCreditHandler(users));
         this.post("/restaurants/:id/addtocart", new AddToCartHandler(users, restaurants) );
         this.get("/cart", new GetCartHandler(users));
+        this.post("/cart/finalize", new FinalizeOrderHandler(users));
     }
 
 }

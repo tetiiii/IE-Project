@@ -1,5 +1,6 @@
 package test.java.ir.loghme.model.command;
 
+import main.java.ir.loghme.exeption.InsufficientCreditException;
 import main.java.ir.loghme.model.*;
 import main.java.ir.loghme.controller.command.FinalizeOrder;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,15 +21,15 @@ public class FinalizeOrderTest {
         ArrayList<User> users = new ArrayList<>();
         User user = new User();
         users.add(user);
-
-        Restaurant r1 = new Restaurant("1",null, "1",
+        user.setCredit(Integer.MAX_VALUE);
+       Restaurant r1 = new Restaurant("1",null, "1",
                 "1",
                 new Location(3,4),
                 new ArrayList<Food>());
 
         // add foods to restaurant menu
-        r1.addFood(new Food(null,"Fateme","khoshmaze", 100,10000));
-        r1.addFood(new Food(null, "Fateme2","khoshmaze2", 1002,100002));
+        r1.addFood(new Food(null,"Fateme","khoshmaze", 100,20000));
+        r1.addFood(new Food(null, "Fateme2","khoshmaze2", 1002,10000));
 
         try {
             user.addToCart("Fateme", r1);
@@ -43,7 +44,7 @@ public class FinalizeOrderTest {
 
     @Test
     // success test
-    public void testFinalizeOrderSuccess() {
+    public void testFinalizeOrderSuccess() throws InsufficientCreditException {
         HashMap<String,Integer> actualResult;
         HashMap<String,Integer>  expectedResult = new HashMap<>();
         actualResult = ((Cart)this.finalizeOrder.execute(null)).getFactor();
