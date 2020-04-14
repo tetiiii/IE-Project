@@ -24,6 +24,10 @@ public class WebServer {
         this.app = Javalin.create().start(port);
     }
 
+    public void stop() {
+        this.app.stop();
+    }
+
     public void get(String path, Handler handler) {
         this.app.get(path, handler);
     }

@@ -37,6 +37,6 @@ public class AddToCartHandler extends AddToCart implements Handler {
             context.html(e.getMessage()).res.setCharacterEncoding("utf-8");
             return;
         }
-        context.redirect("/restaurants/" + id);
+        context.result("added to your cart successfully =)))))))))");
     }
 }
